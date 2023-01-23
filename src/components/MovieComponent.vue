@@ -10,7 +10,7 @@
             </div>
             <span class="movie-overview">{{ movie.overview }}</span>
             <div class="movie-buttons">
-                <button class="btn movie-buttons-watched" @click="!movieStore.movies[movie.id].movie.isWatched">
+                <button class="btn movie-buttons-watched" @click="toggleWatched(movie)">
                     <span v-if="!movie.isWatched">Watched</span>
                     <span v-else>Unwatched</span>
                 </button>
@@ -28,6 +28,11 @@
 //     default: () => {},
 //   },
 // });
+import { useMovieStore } from '@/stores/MovieStore';
+const movieStore = useMovieStore();
+function toggleWatched(movie){
+    movieStore.movies[movieStore.movies.findIndex(x => x.id === movie.id)].isWatched = !movieStore.movies[movieStore.movies.findIndex(x => x.id === movie.id)].isWatched;
+}
 </script>
 
 <script>
