@@ -5,10 +5,10 @@
       <h2>My Favorite Movies</h2>
     </header>
     <div class="tabs">
-      <button :class="['btn', { btn_green: movieStore.activeTab === 1 }]">
+      <button :class="['btn', { btn_green: movieStore.activeTab === 1 }]" @click="movieStore.activeTab = 1">
         Favorite
       </button>
-      <button :class="['btn', { btn_green: movieStore.activeTab === 2 }]">
+      <button :class="['btn', { btn_green: movieStore.activeTab === 2 }]" @click="movieStore.activeTab = 2">
         Search
       </button>
       <button class="btn" @click="movieStore.movies.push([])">
@@ -22,7 +22,9 @@
         :key="movie.id"
         :movie="movie" />
     </div>
-    <div class="search" v-else>Search</div>
+    <div class="search" v-else>
+        <h3>Search</h3>
+    </div>
   </main>
 </template>
 
