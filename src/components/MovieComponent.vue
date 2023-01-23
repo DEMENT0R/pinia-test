@@ -29,9 +29,13 @@
 //   },
 // });
 import { useMovieStore } from '@/stores/MovieStore';
+
 const movieStore = useMovieStore();
-function toggleWatched(movie){
-    movieStore.movies[movieStore.movies.findIndex(x => x.id === movie.id)].isWatched = !movieStore.movies[movieStore.movies.findIndex(x => x.id === movie.id)].isWatched;
+
+function toggleWatched(movie) {
+    let id = movieStore.movies.findIndex(x => x.id === movie.id);
+    
+    movieStore.movies[id].isWatched = !movieStore.movies[id].isWatched;
 }
 </script>
 
